@@ -54,7 +54,7 @@ public class TableModel extends AbstractTableModel {
 	
 	@Override
 	public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-		System.out.println("editing: " + aValue);
+		
 	}
 	
 	public void setCredentialSet(Set<CredentialSet> credentialSets) {

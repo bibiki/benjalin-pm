@@ -5,7 +5,6 @@ import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.io.IOException;
 import java.util.Comparator;
-import java.util.HashSet;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
@@ -42,7 +41,6 @@ public class ActionsPanel extends JPanel {
 		this.credentialSetServiceInt = credentialSetServiceInt;
 		this.encryptor = encryptor;
 		this.passwordsInDB = passwordsInDB;
-//		this.sorter = new TableRowSorter<>(new TableModel(null));
 		setLayout(new GridBagLayout());
 		try {
 			Image clipboard = ImageIO.read(getClass().getClassLoader().getResource("clipboard-icon.png"));
@@ -89,8 +87,6 @@ public class ActionsPanel extends JPanel {
 		});
 		
 		removeThisCredentialSet.addActionListener(l -> {
-			System.out.println(passwordsInDB.getSelectedRow() + " selected row");
-			System.out.println("row count: " + passwordsInDB.getRowCount());
 			if(passwordsInDB.getSelectedRow() < 0) {
 				JOptionPane.showMessageDialog(null, "You should select a row first!");
 				return;
@@ -107,16 +103,6 @@ public class ActionsPanel extends JPanel {
 			
 			@Override
 			public void removeUpdate(DocumentEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("remove update");
-				System.out.println(filterAppTextField.getText());
-//				RowFilter<TableModel, Object> rf = null;
-			    //If current expression doesn't parse, don't update.
-//			    try {
-//			        rf = RowFilter.regexFilter(filterAppTextField.getText(), 0);
-//			    } catch (java.util.regex.PatternSyntaxException e) {
-//			        return;
-//			    }
 				String text = filterAppTextField.getText();
 				if(text.equals("")) {
 					((TableModel)ActionsPanel.this.passwordsInDB.getModel()).setCredentialSet(credentialSetServiceInt.getAll());
@@ -128,9 +114,6 @@ public class ActionsPanel extends JPanel {
 			
 			@Override
 			public void insertUpdate(DocumentEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("insert update");
-				System.out.println(filterAppTextField.getText());
 				String text = filterAppTextField.getText();
 				if(text.equals("")) {
 					((TableModel)ActionsPanel.this.passwordsInDB.getModel()).setCredentialSet(credentialSetServiceInt.getAll());
@@ -142,8 +125,7 @@ public class ActionsPanel extends JPanel {
 			
 			@Override
 			public void changedUpdate(DocumentEvent arg0) {
-				// TODO Auto-generated method stub
-				System.out.println("changed update");
+				
 			}
 		});;
 	}
