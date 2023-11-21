@@ -18,7 +18,7 @@ It makes use of derby, and embedde database. That means, all the data is stored 
 
 Here is what it looks like when ran:
 
-![Circle]({{site.url}}/gui-benjalinpm.png)
+![Circle](./gui-benjalinpm.png)
 
 You may add passwords to your database making use of the form in the application. The application asks you to insert your password twice to reduce the chance that a misstyped password is being stored. Similarly ,the application asks you to enter an encryption key for the password twice. Once you have saved a password you may retrieve it from the database of this application to use it.
 
