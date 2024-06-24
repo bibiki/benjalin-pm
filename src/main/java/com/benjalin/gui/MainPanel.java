@@ -107,7 +107,6 @@ public class MainPanel extends JPanel {
 	
 	private void addButtonListener() {
 		savePassword.addActionListener(l -> {
-			System.out.println("sickos: " + credentialSetService.getAll().size());
 			if(!this.isCSDataValid()){
 				String message = this.getValidityFailureMessage();
 				JOptionPane.showMessageDialog(null, message);
