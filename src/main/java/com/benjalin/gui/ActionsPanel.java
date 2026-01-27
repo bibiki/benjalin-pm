@@ -93,7 +93,7 @@ public class ActionsPanel extends JPanel {
 			}
 			int okCxl = JOptionPane.showConfirmDialog(null, "This will delete your credentials from the database. You will not be able to retreive them ever again.", "Confirm removal", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if(JOptionPane.OK_OPTION == okCxl) {
-				long id = (long)passwordsInDB.getModel().getValueAt(passwordsInDB.getSelectedRow(), -1);
+				long id = (long)passwordsInDB.getModel().getValueAt(passwordsInDB.getSelectedRow(), 3);
 				credentialSetServiceInt.delete(id);
 				((TableModel)this.passwordsInDB.getModel()).setCredentialSet(credentialSetServiceInt.getAll());
 			}
@@ -132,12 +132,5 @@ public class ActionsPanel extends JPanel {
 	
 	public JTable getPassowrdsInDB() {
 		return this.passwordsInDB;
-	}
-	
-	public static class TableRowComparator implements Comparator<CredentialSet> {
-		@Override
-		public int compare(CredentialSet one, CredentialSet other) {
-			return one.getTargetApp().compareTo(other.getTargetApp());
-		}
 	}
 }

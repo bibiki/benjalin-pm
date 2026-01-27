@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Properties;
 import java.util.Set;
+import java.util.TreeSet;
 
 import org.apache.derby.jdbc.EmbeddedDriver;
 
@@ -95,7 +96,7 @@ public class CredentialSetDaoImpl implements CredentialSetDaoInt {
 	}
 
 	public Set<CredentialSet> getAll() {
-		Set<CredentialSet> credentialSets = new HashSet<>();
+		Set<CredentialSet> credentialSets = new TreeSet<CredentialSet>((a, b) -> Long.compare(a.getId(), b.getId()));
 		try {
 			Statement preparedStatement = conn.createStatement();
 			ResultSet result = preparedStatement.executeQuery("select * from credential_set");
@@ -117,7 +118,7 @@ public class CredentialSetDaoImpl implements CredentialSetDaoInt {
 	
 	@Override
 	public Set<CredentialSet> getAllFilteredByTargetApp(String appName) {
-		Set<CredentialSet> credentialSets = new HashSet<>();
+		Set<CredentialSet> credentialSets = new TreeSet<CredentialSet>((a, b) -> Long.compare(a.getId(), b.getId()));
 		try {
 			Statement preparedStatement = conn.createStatement();
 			ResultSet result = preparedStatement.executeQuery("select * from credential_set where target_app like '%" + appName + "%'");

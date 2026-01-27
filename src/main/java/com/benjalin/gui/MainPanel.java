@@ -65,8 +65,6 @@ public class MainPanel extends JPanel {
 		this.addButtonListener();
 		this.setFocusTraversalPolicyProvider(true);
 		this.setFocusTraversalPolicy(new MyFocusTraversalPolicy());
-		passwordsInDB.setAutoCreateRowSorter(true);
-		passwordsInDB.getRowSorter().toggleSortOrder(0);
 	}
 	
 	private void addComponents() {

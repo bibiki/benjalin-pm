@@ -12,7 +12,13 @@ public class TableModel extends AbstractTableModel {
 	private CredentialSet[] credentialSet;
 	
 	public TableModel(Set<CredentialSet> credentialSet) {
-		this.credentialSet = credentialSet.toArray(new CredentialSet[credentialSet.size()]);
+		this.credentialSet = new CredentialSet[credentialSet.size()];
+		int i = 0;
+		for(CredentialSet c : credentialSet) {
+			System.out.println(c);
+			this.credentialSet[i] = c;
+			i++;
+		}
 	}
 	
 	@Override
@@ -36,7 +42,7 @@ public class TableModel extends AbstractTableModel {
 		else if(2 == columnIndex) {
 			return this.credentialSet[rowIndex].getAppDescription();
 		}
-		else if(-1 == columnIndex) {
+		else if(3 == columnIndex) {
 			return this.credentialSet[rowIndex].getId();
 		}
 		return "";
@@ -58,7 +64,13 @@ public class TableModel extends AbstractTableModel {
 	}
 	
 	public void setCredentialSet(Set<CredentialSet> credentialSets) {
-		this.credentialSet = credentialSets.toArray(new CredentialSet[credentialSets.size()]);
+		int i = 0;
+		for(CredentialSet c : credentialSets) {
+			this.credentialSet[i] = c;
+			i++;
+		}
+			
+//		this.credentialSet = credentialSets.toArray(new CredentialSet[credentialSets.size()]);
 		this.fireTableDataChanged();
 	}
 }

@@ -70,4 +70,9 @@ public class CredentialSet implements DomainObject {
 	public void setAppDescription(String appDescription) {
 		this.appDescription = appDescription;
 	}
+
+	@Override
+	public String toString() {
+		return "CredentialSet [id=" + id + ", username=" + username + ", targetApp=" + targetApp + "]";
+	}
 }
