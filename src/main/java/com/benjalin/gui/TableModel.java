@@ -11,14 +11,8 @@ public class TableModel extends AbstractTableModel {
 	private static final String[] COLUMN_NAMES = new String[]{"Target app", "Username", "Description"};
 	private CredentialSet[] credentialSet;
 	
-	public TableModel(Set<CredentialSet> credentialSet) {
-		this.credentialSet = new CredentialSet[credentialSet.size()];
-		int i = 0;
-		for(CredentialSet c : credentialSet) {
-			System.out.println(c);
-			this.credentialSet[i] = c;
-			i++;
-		}
+	public TableModel(Set<CredentialSet> credentialSets) {
+		this.credentialSet = credentialSets.toArray(new CredentialSet[credentialSets.size()]);
 	}
 	
 	@Override
@@ -64,13 +58,7 @@ public class TableModel extends AbstractTableModel {
 	}
 	
 	public void setCredentialSet(Set<CredentialSet> credentialSets) {
-		int i = 0;
-		for(CredentialSet c : credentialSets) {
-			this.credentialSet[i] = c;
-			i++;
-		}
-			
-//		this.credentialSet = credentialSets.toArray(new CredentialSet[credentialSets.size()]);
+		this.credentialSet = credentialSets.toArray(new CredentialSet[credentialSets.size()]);
 		this.fireTableDataChanged();
 	}
 }
