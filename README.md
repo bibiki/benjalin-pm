@@ -11,6 +11,8 @@ mvn clean package
 
 from inside the root directory of the project. That is, from inside benjalin-pm directory.
 
+This will create two files in the target/ directory: ```benjalin-pm-0.0.1-SNAPSHOT-jar-with-dependencies.jar``` and ```benjalin-pm-0.0.1-SNAPSHOT.jar```. You want to use the one whose name indicates that its dependencies are included. You may rename the file if you find it easier to use that way. I have renamed it to mpm.jar in my system, for 'my password manager'.
+
 How it works
 =
 
