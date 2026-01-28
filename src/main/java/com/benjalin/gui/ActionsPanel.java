@@ -95,6 +95,7 @@ public class ActionsPanel extends JPanel {
 			if(JOptionPane.OK_OPTION == okCxl) {
 				long id = (long)passwordsInDB.getModel().getValueAt(passwordsInDB.getSelectedRow(), 3);
 				credentialSetServiceInt.delete(id);
+				filterAppTextField.setText("");
 				((TableModel)this.passwordsInDB.getModel()).setCredentialSet(credentialSetServiceInt.getAll());
 			}
 		});
