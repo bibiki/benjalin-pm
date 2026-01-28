@@ -4,7 +4,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Image;
 import java.io.IOException;
-import java.util.Comparator;
 
 import javax.imageio.ImageIO;
 import javax.inject.Inject;
