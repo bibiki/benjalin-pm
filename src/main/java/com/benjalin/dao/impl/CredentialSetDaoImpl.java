@@ -45,17 +45,13 @@ public class CredentialSetDaoImpl implements CredentialSetDaoInt {
 		}
 	}
 
-	public CredentialSet save(CredentialSet credentialSet) {
-		try {
-			preparedStatement = conn.prepareStatement("insert into credential_set(username, encrypted_password, target_app, app_description) values(?, ?, ?, ?)");
-			preparedStatement.setString(1, credentialSet.getUsername());
-			preparedStatement.setString(2, credentialSet.getEncryptedPassword());
-			preparedStatement.setString(3, credentialSet.getTargetApp());
-			preparedStatement.setString(4, credentialSet.getAppDescription());
-			preparedStatement.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public CredentialSet save(CredentialSet credentialSet) throws SQLException {
+		preparedStatement = conn.prepareStatement("insert into credential_set(username, encrypted_password, target_app, app_description) values(?, ?, ?, ?)");
+		preparedStatement.setString(1, credentialSet.getUsername());
+		preparedStatement.setString(2, credentialSet.getEncryptedPassword());
+		preparedStatement.setString(3, credentialSet.getTargetApp());
+		preparedStatement.setString(4, credentialSet.getAppDescription());
+		preparedStatement.executeUpdate();
 		return credentialSet;
 	}
 	

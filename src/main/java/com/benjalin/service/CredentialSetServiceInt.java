@@ -1,12 +1,13 @@
 package com.benjalin.service;
 
+import java.sql.SQLException;
 import java.util.Set;
 
 import com.benjalin.dao.domain.CredentialSet;
 
 public interface CredentialSetServiceInt {
 
-	CredentialSet save(CredentialSet credentialSet);
+	CredentialSet save(CredentialSet credentialSet) throws SQLException ;
 	
 	void delete(CredentialSet credentialSet);
 	

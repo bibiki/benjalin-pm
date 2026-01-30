@@ -7,6 +7,7 @@ import java.awt.FocusTraversalPolicy;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -113,8 +114,13 @@ public class MainPanel extends JPanel {
 			}
 			CredentialSet newCredentialSet = this.getCredentialSetDataFromUI();
 			this.clearInputFields();
-			credentialSetService.save(newCredentialSet);
-			((TableModel)this.passwordsInDB.getModel()).setCredentialSet(credentialSetService.getAll());
+			try {
+				credentialSetService.save(newCredentialSet);
+				((TableModel)this.passwordsInDB.getModel()).setCredentialSet(credentialSetService.getAll());
+			} catch (SQLException e) {
+				e.printStackTrace();
+				JOptionPane.showMessageDialog(null, e.getMessage());
+			}
 		});
 	}
 	private String getValidityFailureMessage() {

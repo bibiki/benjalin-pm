@@ -3,6 +3,7 @@ package com.benjalin.service.impl;
 import java.awt.Toolkit;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+import java.sql.SQLException;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -16,7 +17,7 @@ public class CredentialSetServiceImpl implements CredentialSetServiceInt {
 	@Inject
 	private CredentialSetDaoInt credentialSetDaoInt;
 	
-	public CredentialSet save(CredentialSet credentialSet) {
+	public CredentialSet save(CredentialSet credentialSet) throws SQLException {
 		return credentialSetDaoInt.save(credentialSet);
 	}
 	
