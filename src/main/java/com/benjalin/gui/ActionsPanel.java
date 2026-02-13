@@ -71,7 +71,7 @@ public class ActionsPanel extends JPanel {
 				key = new String(encryptionKey.getPassword());
 			}
 			if(okCxl == JOptionPane.OK_OPTION) {
-				long id = (long)passwordsInDB.getModel().getValueAt(passwordsInDB.getSelectedRow(), -1);
+				long id = (long)passwordsInDB.getModel().getValueAt(passwordsInDB.getSelectedRow(), 3);
 				CredentialSet credentialSet = credentialSetServiceInt.getById(id);
 				String encryptedPassword = credentialSet.getEncryptedPassword();
 				try {
